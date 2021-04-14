@@ -94,11 +94,9 @@ def tp_value_set_one(x, y):
     l = []
     tp_id = xy_get_id(x, y, setts.x1, setts.x2, setts.y1, setts.y2, setts.quad_tree_level)
     l.append(tp_id)
-    # leaf_point_list[tp_id].tp_value = 1
     f_id = leaf_point_list[tp_id].father_id
     while f_id != '#':
         l.append(f_id)
-        # non_leaf_point_list[f_id].tp_value = 1
         f_id = non_leaf_point_list[f_id].father_id
     return np.sort(np.array(l, dtype=float))
 
