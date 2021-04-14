@@ -85,6 +85,8 @@ def xy_get_id(x, y, x1, x2, y1, y2, h):  # 返回坐标所在叶节点的id
     id = g_id
     g_id = 1
     return id
+
+
 """
 递归实现查找坐标的叶子节点id，在xy_get_id函数中返回一个全局变量g_id.
 """
@@ -120,7 +122,7 @@ def disturbance(x):
         else:
             x = 0
     elif x == 0:
-        if np.random.uniform(0, 1) <= np.exp(setts.epsilon) / (1 + np.exp(setts.epsilon)):
+        if np.random.uniform(0, 1) <= 1 / (1 + np.exp(setts.epsilon)):
             x = 0
         else:
             x = 1
