@@ -1,6 +1,6 @@
 class Setting:
     def __init__(self):
-        self.quad_tree_level = 5  # 四叉树的层数，1024 * 1024应该为11层
+        self.quad_tree_level = 4  # 四叉树的层数，1024 * 1024应该为11层
         self.x1 = 0
         self.x2 = 16
         self.y1 = 0

@@ -103,8 +103,8 @@ def tp_value_set_one(x, y):
 
 def rand_select_level_and_send_list(one_point_list):
     n_level = np.random.randint(1, setts.quad_tree_level + 1)  # 随机选择第几层
-    num_of_point_in_level = np.power(4, n_level - 1)
-    num_point_out_of_n_level = 1 / 3 * (np.power(4, n_level - 1) - 1)  # 1到n_level-1所有层次节点的总数
+    num_of_point_in_level = 4 ** (n_level - 1)
+    num_point_out_of_n_level = 1 / 3 * (4 ** (n_level - 1) - 1)  # 1到n_level-1所有层次节点的总数
     # num_point_of_n_level = 1/3 * (np.power(4, n_level) - 1)  # n_level层所有节点的总数
     n = one_point_list[n_level - 1]
     k = int(n - num_point_out_of_n_level)
