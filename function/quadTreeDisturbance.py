@@ -82,25 +82,23 @@ def from_xy_get_leaf_point_id(x, y, x1, x2, y1, y2, h):  # 时间复杂度O(logn
 def xy_get_id(x, y, x1, x2, y1, y2, h):  # 返回坐标所在叶节点的id
     global g_id
     from_xy_get_leaf_point_id(x, y, x1, x2, y1, y2, h)
-    id = g_id
+    x_id = g_id
     g_id = 1
-    return id
-
-
+    return x_id
 """
 递归实现查找坐标的叶子节点id，在xy_get_id函数中返回一个全局变量g_id.
 """
 
 
 def tp_value_set_one(x, y):
-    l = []
+    id_list = []
     tp_id = xy_get_id(x, y, setts.x1, setts.x2, setts.y1, setts.y2, setts.quad_tree_level)
-    l.append(tp_id)
+    id_list.append(tp_id)
     f_id = leaf_point_list[tp_id].father_id
     while f_id != '#':
-        l.append(f_id)
+        id_list.append(f_id)
         f_id = non_leaf_point_list[f_id].father_id
-    return np.sort(np.array(l, dtype=float))
+    return np.sort(np.array(id_list, dtype=float))
 
 
 def rand_select_level_and_send_list(one_point_list):
@@ -122,7 +120,7 @@ def disturbance(x):
         else:
             x = 0
     elif x == 0:
-        if np.random.uniform(0, 1) <= 1 / (1 + np.exp(setts.epsilon)):
+        if np.random.uniform(0, 1) <= np.exp(setts.epsilon) / (1 + np.exp(setts.epsilon)):
             x = 0
         else:
             x = 1

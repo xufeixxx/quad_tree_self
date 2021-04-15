@@ -5,3 +5,8 @@ class TreePoint:
         self.region = region
         self.tp_level = level  # 此节点所在的层
         self.father_id = f_id
+        self.tp_value_1 = 0
+        self.tp_value_2 = 0
+        """
+        tp_value_1 and to_value_2 是树的后置化处理后的两个变量，区域查询将使用tp_value_2来进行。
+        """
